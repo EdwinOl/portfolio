@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos de Swiper */
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+@layer base {
+  /* Reset de estilos para enlaces */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: inherit;
+  }
+  
+  /* Reset de estilos para listas */
+  ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+/* Estilos específicos para enlaces de redes sociales */
+a[href*="linkedin.com"],
+a[href*="github.com"],
+a[href*="mailto:"] {
+  color: #37a1a4 !important;
+}
+
+a[href*="linkedin.com"]:visited,
+a[href*="github.com"]:visited,
+a[href*="mailto:"]:visited {
+  color: #37a1a4 !important;
+}
+
+a[href*="linkedin.com"]:hover,
+a[href*="github.com"]:hover,
+a[href*="mailto:"]:hover {
+  color: white !important;
+}
+
+/* Botones específicos de redes sociales */
+.social-button {
+  color: #37a1a4 !important;
+  background-color: rgba(55, 161, 164, 0.2) !important;
+}
+
+.social-button:visited {
+  color: #37a1a4 !important;
+  background-color: rgba(55, 161, 164, 0.2) !important;
+}
+
+.social-button:hover {
+  color: white !important;
+}
+
+/* Estilos globales básicos para tu portfolio */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Personalización opcional de scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Estilos personalizados para el carrusel de proyectos */
+.projects-swiper {
+  width: 100% !important;
+  height: 280px !important;
+}
+
+.projects-swiper .swiper-wrapper {
+  height: 100% !important;
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.projects-swiper .swiper-slide {
+  width: 100% !important;
+  height: 100% !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.projects-swiper .swiper-slide-active {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.projects-swiper .swiper-slide-prev {
+  opacity: 0 !important;
+  transform: translateX(-100%) !important;
+}
+
+.projects-swiper .swiper-slide-next {
+  opacity: 0 !important;
+  transform: translateX(100%) !important;
+}
+
+/* Ocultar botones de navegación por defecto de Swiper */
+.projects-swiper .swiper-button-next,
+.projects-swiper .swiper-button-prev {
+  display: none;
+}
+
+.projects-swiper .swiper-pagination-bullet {
+  background: #37a1a4;
+  opacity: 0.5;
+  width: 8px;
+  height: 8px;
+}
+
+.projects-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #37a1a4;
+}
