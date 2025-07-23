@@ -7,27 +7,19 @@ import { Email } from '../../components/socialMedia/email';
 const projects = [
   {
     id: 1,
-    name: 'E-commerce React',
-    description: 'Tienda online con carrito de compras y pasarela de pago',
+    name: 'Cerdeña Embutidos',
+    description: '',
     image: 'home/ed2.webp',
-    technologies: ['React', 'TypeScript', 'Tailwind'],
-    link: '#',
+    technologies: ['React', 'TypeScript', 'Tailwind Css', 'GSAP', 'Swiper', 'Lenis'],
+    link: 'https://www.cerdena.pe/',
   },
   {
     id: 2,
-    name: 'Dashboard Analytics',
-    description: 'Panel de control con gráficos y métricas en tiempo real',
+    name: 'Agua Cielo - Eleva tu vida | AJE Group',
+    description: '',
     image: 'home/ed2.webp',
-    technologies: ['Vue.js', 'Chart.js', 'API Rest'],
-    link: '#',
-  },
-  {
-    id: 3,
-    name: 'Landing Page',
-    description: 'Página de aterrizaje responsiva con animaciones suaves',
-    image: 'home/ed2.webp',
-    technologies: ['HTML5', 'CSS3', 'JavaScript'],
-    link: '#',
+    technologies: ['Astro', 'JavaScript', 'Tailwind Css', 'GSAP', 'Swiper', 'Lenis'],
+    link: 'https://agua-cielo.com/',
   }
 ]
 
@@ -96,20 +88,18 @@ export function Hero() {
               modules={[Navigation, Pagination, Autoplay]}
               spaceBetween={30}
               slidesPerView={1}
-              navigation={{
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-              }}
+              navigation={projects.length > 1}
               pagination={{
                 clickable: true,
-                el: '.swiper-pagination'
+                type: 'bullets',
               }}
-              autoplay={{
+              autoplay={projects.length > 1 ? {
                 delay: 4000,
                 disableOnInteraction: false,
-              }}
-              loop={true}
-              className="projects-swiper w-full h-full px-10"
+              } : false}
+              loop={projects.length > 2}
+              allowTouchMove={projects.length > 1}
+              className="projects-swiper w-full h-full px-12"
             >
               {projects.map((project) => (
                 <SwiperSlide key={project.id} className="h-full">
@@ -135,13 +125,14 @@ export function Hero() {
                       </div>
                     </div>
 
-                    <p className="text-gray-300 text-sm mb-6 leading-relaxed flex-grow">
+                    <p className="text-gray-300 text-sm mb-6 leading-relaxed flex-grow justify-center items-center flex">
                       {project.description}
                     </p>
 
                     <a
                       href={project.link}
-                      className="inline-flex items-center text-[#37a1a4] hover:text-white transition-colors font-medium mt-auto"
+                      target="_blank"
+                      className="inline-flex items-center text-[#37a1a4] hover:text-white transition-colors font-medium mt-auto visited:text-[#37a1a4]"
                     >
                       Ver proyecto
                       <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -152,21 +143,6 @@ export function Hero() {
                 </SwiperSlide>
               ))}
             </Swiper>
-
-            {/* Botones de navegación personalizados */}
-            <div className="swiper-button-prev absolute left-1 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8 bg-[#37a1a4]/20 rounded-full flex items-center justify-center hover:bg-[#37a1a4]/40 transition-colors cursor-pointer">
-              <svg className="w-4 h-4 text-[#37a1a4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </div>
-            <div className="swiper-button-next absolute right-1 top-1/2 transform -translate-y-1/2 z-10 w-8 h-8 bg-[#37a1a4]/20 rounded-full flex items-center justify-center hover:bg-[#37a1a4]/40 transition-colors cursor-pointer">
-              <svg className="w-4 h-4 text-[#37a1a4]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </div>
-
-            {/* Paginación personalizada */}
-            <div className="swiper-pagination mt-4 flex justify-center"></div>
           </div>
         </div>
       </div>

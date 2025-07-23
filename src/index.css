@@ -1,11 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Estilos de Swiper */
+/* Estilos de Swiper - DEBEN IR PRIMERO */
 @import 'swiper/css';
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   /* Reset de estilos para enlaces */
@@ -130,20 +130,46 @@ body {
   transform: translateX(100%) !important;
 }
 
-/* Ocultar botones de navegación por defecto de Swiper */
+/* Estilos para botones de navegación nativos de Swiper */
 .projects-swiper .swiper-button-next,
 .projects-swiper .swiper-button-prev {
-  display: none;
+  color: #37a1a4 !important;
+  background: rgba(55, 161, 164, 0.2) !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  margin-top: -16px !important;
+}
+
+.projects-swiper .swiper-button-next:after,
+.projects-swiper .swiper-button-prev:after {
+  font-size: 14px !important;
+  font-weight: bold !important;
+  color: #37a1a4 !important;
+}
+
+.projects-swiper .swiper-button-next:hover,
+.projects-swiper .swiper-button-prev:hover {
+  background: rgba(55, 161, 164, 0.4) !important;
+}
+
+.projects-swiper .swiper-button-disabled {
+  display: none !important;
+}
+
+.projects-swiper .swiper-pagination {
+  position: relative !important;
+  margin-top: 20px !important;
 }
 
 .projects-swiper .swiper-pagination-bullet {
-  background: #37a1a4;
-  opacity: 0.5;
-  width: 8px;
-  height: 8px;
+  background: #37a1a4 !important;
+  opacity: 0.5 !important;
+  width: 8px !important;
+  height: 8px !important;
 }
 
 .projects-swiper .swiper-pagination-bullet-active {
-  opacity: 1;
-  background: #37a1a4;
+  opacity: 1 !important;
+  background: #37a1a4 !important;
 }
